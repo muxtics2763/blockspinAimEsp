@@ -6,9 +6,26 @@ local UserInputService = game:GetService("UserInputService")
  
 local LocalPlayer = Players.LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
+
+local ALLOWED_PLACE = 104715542330896 -- PlaceId de Block Spin
+
+local ALLOWED_USERS = {
+    [8249111649] = true, -- Tu UserId
+	[8268942718] = true, -- Tu UserId
+	[4127672041] = true, -- Tu UserId
+    [1234567890] = true, -- UserId autorizado
+}
+
+if game.PlaceId ~= ALLOWED_PLACE then
+    return warn("Este script solo funciona en Block Spin.")
+end
+
+if not ALLOWED_USERS[LocalPlayer.UserId] then
+    return warn("No estás autorizado a usar este script.")
+end
  
 -- FPS FIX
-local UPDATE_DELAY = 0.01
+local UPDATE_DELAY = 0.017
  
 -- GUI
 local ScreenGui = Instance.new("ScreenGui")
@@ -494,20 +511,12 @@ local function getWeapons(player)
 
 				if info then
 
-					table.insert(items,{
-						Name = info.Name,
-						Rarity = info.Rarity
-					})
+    table.insert(items,{
+        Name = info.Name,
+        Rarity = info.Rarity
+    })
 
-				else
-
-					table.insert(items,{
-						Name = tool.Name,
-						Rarity =
-							tool:GetAttribute("RarityName")
-							or "Common"
-					})
-				end
+end
 			end
 		end
 	end
