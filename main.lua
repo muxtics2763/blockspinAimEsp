@@ -205,7 +205,7 @@ local Tracers = true
 local HideNameEnabled = true
 
 local ExcludedPlayers = {}
-local AimKey = Enum.KeyCode.T
+local AimKey = Enum.KeyCode.F
  
 local function toggle(text,pos,callback)
  
@@ -1322,7 +1322,7 @@ BindButton.Size = UDim2.new(0,300,0,32)
 BindButton.Position = UDim2.new(0,30,0,195)
 BindButton.BackgroundColor3 = Color3.fromRGB(40,40,40)
 BindButton.TextColor3 = Color3.new(1,1,1)
-BindButton.Text = "Bind : T"
+BindButton.Text = "Bind : F"
 BindButton.Parent = AimFrame
 styleAimButton(BindButton,false)
  
