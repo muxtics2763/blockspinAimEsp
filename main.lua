@@ -20,6 +20,7 @@ local ALLOWED_USERS = {
 	[11022729351] = true, -- UserId autorizado
 	[11003008343] = true, -- UserId autorizado
 	[8746570119] = true, -- UserId autorizado
+	[1780352633725] = true, -- UserId autorizado
 }
 
 if game.PlaceId ~= ALLOWED_PLACE then
