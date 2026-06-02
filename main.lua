@@ -13,6 +13,7 @@ local ALLOWED_USERS = {
     [8249111649] = true, -- Tu UserId
 	[8268942718] = true, -- Tu UserId
 	[4127672041] = true, -- Tu UserId
+	[8524499198] = true, -- Tu UserId
     [10068306280] = true, -- UserId autorizado
 	[11024258784] = true, -- UserId autorizado
 	[10633233102] = true, -- UserId autorizado
