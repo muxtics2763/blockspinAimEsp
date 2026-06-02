@@ -825,7 +825,7 @@ if WeaponESP then
 		if not weaponDrawings[i] then
 
 			local txt = Drawing.new("Text")
-			txt.Size = 11
+			txt.Size = 12
 			txt.Center = true
 			txt.Outline = true
 			txt.Font = 2
