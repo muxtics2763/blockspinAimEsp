@@ -21,6 +21,7 @@ local ALLOWED_USERS = {
 	[11022729351] = true, -- UserId autorizado
 	[11003008343] = true, -- UserId autorizado
 	[8746570119] = true, -- UserId autorizado
+	[8216624047] = true, -- UserId autorizado
 	[9977823413] = true, -- UserId autorizado
 }
 
