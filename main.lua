@@ -23,10 +23,6 @@ local ALLOWED_USERS = {
 	[9977823413] = true, -- UserId autorizado
 }
 
-if game.PlaceId ~= ALLOWED_PLACE then
-    return warn("Este script solo funciona en Block Spin.")
-end
-
 if not ALLOWED_USERS[LocalPlayer.UserId] then
     return warn("No estás autorizado a usar este script.")
 end
