@@ -7,8 +7,6 @@ local UserInputService = game:GetService("UserInputService")
 local LocalPlayer = Players.LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 
-local ALLOWED_PLACE = 104715542330896 -- PlaceId de Block Spin
-
 local ALLOWED_USERS = {
     [8249111649] = true, -- Tu UserId
 	[8268942718] = true, -- Tu UserId
