@@ -3,6 +3,7 @@ local RunService = game:GetService("RunService")
 local CoreGui = game:GetService("CoreGui")
 local Camera = workspace.CurrentCamera
 local UserInputService = game:GetService("UserInputService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
  
 local LocalPlayer = Players.LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
@@ -318,7 +319,7 @@ local HideBtn = toggle("Hide Name",300,function(v)
 
 end)
 
-toggle("Skip Sell Animation",300,function(v)
+toggle("Skip Sell Animation",345,function(v)
 
     SkipSellAnimation = v
 
