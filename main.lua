@@ -12,16 +12,16 @@ local ALLOWED_USERS = {
 	[8268942718] = true, -- Tu UserId
 	[4127672041] = true, -- Tu UserId
 	[8524499198] = true, -- Tu UserId
-    [10068306280] = true, -- UserId autorizado
-	[11024258784] = true, -- UserId autorizado
-	[10633233102] = true, -- UserId autorizado
-	[5411922989] = true, -- UserId autorizado
-	[11022729351] = true, -- UserId autorizado
-	[11003008343] = true, -- UserId autorizado
-	[8746570119] = true, -- UserId autorizado
-	[8216624047] = true, -- UserId autorizado
-	[9977823413] = true, -- UserId autorizado
-	[11167745430] = true, -- UserId autorizado
+    [10068306280] = true, -- 1 UserId autorizado
+	[11024258784] = true, -- 2 UserId autorizado
+	[10633233102] = true, -- 3 UserId autorizado
+	[5411922989] = true, -- 4 UserId autorizado
+	[11022729351] = true, -- 5 UserId autorizado
+	[11003008343] = true, -- 6 UserId autorizado
+	[8746570119] = true, -- 7 UserId autorizado
+	[8216624047] = true, -- 8 UserId autorizado
+	[9977823413] = true, -- 9 UserId autorizado
+	[11167745430] = true, -- 10 UserId autorizado
 }
 
 if not ALLOWED_USERS[LocalPlayer.UserId] then
