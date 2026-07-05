@@ -21,6 +21,7 @@ local ALLOWED_USERS = {
 	[8746570119] = true, -- UserId autorizado
 	[8216624047] = true, -- UserId autorizado
 	[9977823413] = true, -- UserId autorizado
+	[11167745430] = true, -- UserId autorizado
 }
 
 if not ALLOWED_USERS[LocalPlayer.UserId] then
