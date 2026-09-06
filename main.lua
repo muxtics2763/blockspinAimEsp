@@ -208,7 +208,6 @@ local HealthESP = true
 local WeaponESP = true
 local Tracers = true
 local HideNameEnabled = true
-local SkipSellAnimation = true
 
 local ExcludedPlayers = {}
 local AimKey = Enum.KeyCode.F
@@ -316,133 +315,6 @@ local HideBtn = toggle("Hide Name",300,function(v)
 			end
 		end
 	end
-
-end)
-
-toggle("Skip Sell Animation",345,function(v)
-
-    SkipSellAnimation = v
-
-    if not v then
-        return
-    end
-
-    local origTween
-
-    pcall(function()
-        if Util and Util.tween then
-            origTween = Util.tween
-
-            Util.tween = function(obj, info, target)
-
-                if obj
-                and obj:IsA("NumberValue")
-                and target
-                and target.Value ~= nil then
-
-                    obj.Value = target.Value
-
-                    return {
-                        Cancel = function() end
-                    }
-                end
-
-                return origTween(obj, info, target)
-            end
-        end
-    end)
-
-    local function setupInstantSell()
-
-        if not BuyPromptUI then
-            return
-        end
-
-        local ok, sellBtn = pcall(function()
-            return BuyPromptUI.get("SellPromptSellButton")
-        end)
-
-        if not ok or not sellBtn then
-            return
-        end
-
-        local holdStroke = sellBtn:FindFirstChild("HoldStroke", true)
-
-        if holdStroke then
-            holdStroke.Enabled = false
-
-            local grad = holdStroke:FindFirstChildOfClass("UIGradient")
-
-            if grad then
-                grad.Enabled = false
-            end
-        end
-
-        for _,v in pairs(sellBtn:GetDescendants()) do
-            if v:IsA("NumberValue") then
-                v.Value = 1
-            end
-        end
-    end
-
-    pcall(function()
-
-        local BuyPromptUIModule =
-            require(ReplicatedStorage.Modules.Game.UI.BuyPromptUI)
-
-        if BuyPromptUIModule.loaded then
-
-            local old_loaded = BuyPromptUIModule.loaded
-
-            BuyPromptUIModule.loaded = function(...)
-
-                local result = old_loaded(...)
-
-                task.spawn(function()
-                    task.wait(0.1)
-                    setupInstantSell()
-                end)
-
-                return result
-            end
-        end
-    end)
-
-    task.spawn(function()
-        task.wait(0.5)
-        setupInstantSell()
-    end)
-
-    pcall(function()
-
-        local UtilModule =
-            require(ReplicatedStorage.Modules.Core.Util)
-
-        if UtilModule.tween then
-
-            local old_tween = UtilModule.tween
-
-            UtilModule.tween = function(instance, tweenInfo, properties, ...)
-
-                if instance:IsA("NumberValue")
-                and properties.Value == 1 then
-
-                    if tweenInfo.Time > 0 then
-                        tweenInfo = TweenInfo.new(
-                            0,
-                            tweenInfo.EasingStyle,
-                            tweenInfo.EasingDirection,
-                            tweenInfo.RepeatCount,
-                            tweenInfo.Reverses,
-                            tweenInfo.DelayTime
-                        )
-                    end
-                end
-
-                return old_tween(instance, tweenInfo, properties, ...)
-            end
-        end
-    end)
 
 end)
 
@@ -965,8 +837,7 @@ if WeaponESP then
 
 		local draw = weaponDrawings[i]
 
-		draw.Text =
-			"["..w.Rarity.."] "..w.Name
+		draw.Text = w.Name
 
 		draw.Color =
 			RarityColors[w.Rarity]
